@@ -1,0 +1,43 @@
+services:
+  # Database
+  - type: pgo
+    name: event-db
+    plan: free
+
+  # Backend (Node.js + Express)
+  - type: web
+    name: event-backend
+    env: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: event-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://event-frontend.onrender.com
+      - key: EMAIL_USER
+        value: "your_email@gmail.com" # Change this in Render dashboard
+      - key: EMAIL_PASS
+        value: "your_app_password"  # Change this in Render dashboard
+
+  # Frontend (Vite + React)
+  - type: web
+    name: event-frontend
+    env: static
+    plan: free
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: event-backend
+          property: host
+          format: https://{host}/api
