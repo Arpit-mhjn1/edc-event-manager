@@ -94,3 +94,5 @@ This application is configured for easy deployment on Render:
 ## 🎨 Customization
 
 To change the primary color scheme, edit the `colors.primary` object inside `client/tailwind.config.js`. The current scheme uses a vibrant lime green palette to match the EDC logo. Official logos should be placed inside `client/src/assets/`.
+
+## Figures
