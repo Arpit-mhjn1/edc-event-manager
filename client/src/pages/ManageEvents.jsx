@@ -215,16 +215,16 @@ const ManageEvents = () => {
 
       {/* Create Event Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl overflow-hidden max-h-[90vh] flex flex-col">
-            <div className="p-6 border-b border-gray-100 flex justify-between items-center">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-0 md:p-4">
+          <div className="bg-white md:rounded-2xl shadow-xl w-full h-full md:h-auto max-w-2xl overflow-hidden md:max-h-[90vh] flex flex-col">
+            <div className="p-4 md:p-6 border-b border-gray-100 flex justify-between items-center shrink-0">
               <h3 className="text-xl font-bold text-gray-900">{editingEventId ? 'Edit Event' : 'Create New Event'}</h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-gray-400 hover:text-gray-600">
+              <button onClick={() => setIsModalOpen(false)} className="text-gray-400 hover:text-gray-600 p-2">
                 <X size={24} />
               </button>
             </div>
             
-            <form onSubmit={handleCreateSubmit} className="p-6 overflow-y-auto space-y-4">
+            <form onSubmit={handleCreateSubmit} className="p-4 md:p-6 overflow-y-auto space-y-4 flex-1">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Event Title</label>
                 <input type="text" required className="w-full p-2 border border-gray-200 rounded-lg" 
@@ -237,7 +237,7 @@ const ManageEvents = () => {
                   value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})}></textarea>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Venue</label>
                   <input type="text" required className="w-full p-2 border border-gray-200 rounded-lg" 
@@ -250,7 +250,7 @@ const ManageEvents = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Start Time</label>
                   <input type="datetime-local" required className="w-full p-2 border border-gray-200 rounded-lg" 

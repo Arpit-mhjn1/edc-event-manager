@@ -64,7 +64,7 @@ const Profile = () => {
         <p className="text-gray-500 mt-1">Manage your academic credentials and personal details.</p>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 md:p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           
           {message && (
