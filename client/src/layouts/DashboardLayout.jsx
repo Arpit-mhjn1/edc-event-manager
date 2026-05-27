@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Calendar, Users, LayoutDashboard, LogOut, Award, User, Menu, X } from 'lucide-react';
+import edcLogo from '../assets/EDC.jpeg';
 
 const DashboardLayout = () => {
   const { user, logout } = useAuth();
@@ -31,9 +32,7 @@ const DashboardLayout = () => {
       <aside className={`fixed md:static inset-y-0 left-0 z-50 w-64 bg-dark-900 text-white flex flex-col transform transition-transform duration-300 ease-in-out shadow-xl ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
         <div className="p-6 border-b border-dark-800 flex items-center justify-between md:justify-start space-x-3">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary-500 to-indigo-500 flex items-center justify-center font-bold shrink-0">
-              EDC
-            </div>
+            <img src={edcLogo} alt="EDC Logo" className="w-10 h-10 rounded-full object-cover shrink-0 border-2 border-white/10" />
             <span className="text-base font-bold tracking-wide leading-tight">Entrepreneurship Development Cell</span>
           </div>
           <button onClick={closeMenu} className="md:hidden text-gray-400 hover:text-white">

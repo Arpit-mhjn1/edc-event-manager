@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Mail, Lock, User, Hash, Phone, UserPlus, BookOpen, GraduationCap, Library, Layers } from 'lucide-react';
+import edcLogo from '../assets/EDC.jpeg';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -50,6 +51,9 @@ const Register = () => {
 
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-3xl shadow-xl z-10 border border-gray-100">
         <div>
+          <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+            <img src={edcLogo} alt="EDC Logo" className="max-w-full max-h-full object-contain" />
+          </div>
           <h2 className="text-center text-3xl font-extrabold text-gray-900 tracking-tight">
             Create an Account
           </h2>
